@@ -76,7 +76,7 @@ function updateUI() {
         mainHtml += `
             <div class="cart-item" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
                 <div style="display: flex; align-items: center; gap: 15px;">
-                    <img src="${item.img}" style="width: 60px; height: 60px; object-fit: cover; border-radius: 8px;">
+                    <img src="${item.img}" style="width: 60px; height: 60px; object-fit: cover; border-radius: 0px;">
                     <div>
                         <div style="font-weight: bold;">${item.name}</div>
                         <small style="color: #666;">Color: ${item.color}</small>
@@ -87,7 +87,7 @@ function updateUI() {
                     <div class="qty-controls" style="margin-top: 5px; display: flex; align-items: center; gap: 5px; justify-content: flex-end;">
                         <button class="cart-qty-btn" onclick="changeQuantity(${index}, ${item.quantity - 1})">−</button>
                         
-                        <select onchange="changeQuantity(${index}, this.value)" class="qty-dropdown" style="padding: 2px; border-radius: 4px; border: 1px solid #ccc;">
+                        <select onchange="changeQuantity(${index}, this.value)" class="qty-dropdown" style="padding: 2px; border-radius: 0px; border: 1px solid #ccc;">
                             ${[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(n => 
                                 `<option value="${n}" ${item.quantity == n ? 'selected' : ''}>${n}</option>`
                             ).join('')}
@@ -104,7 +104,7 @@ function updateUI() {
         // Mini Cart Item with Thumbnails
         miniHtml += `
             <div class="mini-item" style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
-                <img src="${item.img}" style="width: 35px; height: 35px; object-fit: cover; border-radius: 4px;">
+                <img src="${item.img}" style="width: 35px; height: 35px; object-fit: cover; border-radius: 0px;">
                 <div style="flex: 1;">
                     <div style="font-size: 0.8rem; font-weight: bold;">${item.name} x${item.quantity}</div>
                     <div style="font-size: 0.7rem; color: #777;">${item.color}</div>

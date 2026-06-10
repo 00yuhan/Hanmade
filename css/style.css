@@ -2,8 +2,8 @@
     --accent: #000000;
     --accent2: #124e8f;
 
-    --bg: #ffffff;
-    --bg-2: #f2f2f7;
+    --bg: #FBFBFB;
+    --bg-2: #FBFBFB;
     --header-bg: rgba(255, 255, 255, 0.8);
 
     --card-bg: #ffffff;
@@ -13,8 +13,9 @@
     --text: #1d1d1f;
     --text-inv: #ffffff;
     --text-dim: #444444;
+    --text-sec: #555555;
 
-    --border: #d2d2d7;
+    --border: #eee;
     --mono: 'JetBrains Mono', monospace;
 }
 
@@ -52,10 +53,6 @@ header {
     border-bottom: 1px solid var(--border);
 }
 
-#shop {
-    background-color: var(--shop-bg);
-}
-
 .header-container {
     display: flex;
     justify-content: space-between;
@@ -70,7 +67,7 @@ header {
 }
 
 .logo-icon {
-    color: #124e8f;
+    color: #000000;
 }
 
 nav {
@@ -171,13 +168,6 @@ nav a {
     transition: 0.3s all;
 }
 
-.product-card:hover {
-    transform: translateY(-1px);
-    /* Lifts the button up */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-    /* Adds a soft shadow under it */
-}
-
 .product-image img {
     width: 100%;
     height: 220px;
@@ -230,49 +220,78 @@ nav a {
 
 
 .add-btn {
-    background: var(--accent2);
-    color: var(--text-inv);
-    border: none;
-    padding: 12px 25px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: 600;
-
-    transition: all 0.2s ease;
-    box-shadow: 0 2px 0px rgba(0, 0, 0, 0.1)
-}
-
-/* 1. Hover: Subtle highlight and lift */
-.add-btn:hover {
-    filter: brightness(1.2);
-    /* Lightens the color slightly */
-    transform: translateY(-1px);
-    /* Lifts the button up */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-    /* Adds a soft shadow under it */
-}
-
-/* 2. Click (Active): The 'Press' feedback */
-.add-btn:active {
-    color: var(--accent2);
-    transform: translateY(1px);
-    /* Pushes the button down */
-    filter: brightness(0.9);
-    /* Darkens it slightly when pressed */
-    box-shadow: 0 0px 0px rgba(255, 0, 0, 0);
-    /* Removes shadow to look flat */
-    transition: all 0.05s;
-    /* Makes the click feel instant and snappy */
-}
-
-.color-picker {
-    padding: 6px 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
     font-family: 'Inter', sans-serif;
     font-size: 0.85rem;
-    background-color: #fafafa;
+    font-weight: 600;
+    letter-spacing: 0.05em; /* Slightly spaced out text looks more premium */
+    text-transform: uppercase; /* Optional: adds to the technical look */
+    
+    background: #000000;
+    color: #ffffff;
+    border: 1px solid #000000; /* Thin border prevents layout shifting on hover */
+    padding: 5px 24px; /* Balanced padding to align nicely with the picker */
+    border-radius: 0px; /* Perfect */
     cursor: pointer;
+
+    /* Tight, fast transition for a high-end feel */
+    transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+    border-radius: 2px;
+}
+
+/* 1. Hover: Complete inverted monochrome look */
+.add-btn:hover {
+    background: #ffffff;
+    color: #000000;
+    border-color: #000000;
+    /* No shadows, no lifting. Just clean, absolute contrast. */
+}
+
+/* 2. Click (Active): Snappy physical press illusion */
+.add-btn:active {
+    background: #f0f0f0; /* Ultra-subtle gray flash so the user knows it registered */
+    color: #000000;
+    border-color: #000000;
+    transition: all 0.05s ease; /* Keeps the click feeling instant and mechanical */
+}
+
+
+.color-picker {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #000000;
+    
+    /* Structure & Shape */
+    padding: 6px 32px 6px 12px; /* Extra right padding to clear space for the custom arrow */
+    border: 0px solid #111111; /* Sharp, high-contrast crisp border */
+    border-radius: 0px;        /* Keeping it 100% flat and architectural */
+    background-color: #ffffff;
+    cursor: pointer;
+
+    /* Resetting the default browser look */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    /* Custom Minimalist Down-Arrow (Clean SVG Vector) */
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'><path d='M1 3.5 L5 7.5 L9 3.5' fill='none' stroke='%23111111' stroke-width='1.2'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    
+    /* Smooth transition for interactions */
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+/* Subtle, serious hover state */
+.color-picker:hover {
+    background-color: #111111;
+    color: #ffffff;
+    /* Swaps the black arrow to a white arrow on hover */
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'><path d='M1 3.5 L5 7.5 L9 3.5' fill='none' stroke='%23ffffff' stroke-width='1.2'/></svg>");
+}
+
+.color-picker:focus {
+    outline: none;
 }
 
 
@@ -292,16 +311,15 @@ nav a {
     padding: 80px 5%;
     background: var(--bg-2);
     color: var(--text);
-    border-top: 1px solid var(--border);
 }
 
 .checkout-box {
     max-width: 650px;
     margin: 0 auto;
-    background: var(--bg);
+    background: #ffffff;
     padding: 40px;
     border: 1px solid var(--border);
-    border-radius: 8px;
+    border-radius: 0px;
 }
 
 .cart-items {
@@ -328,7 +346,7 @@ nav a {
     color: var(--text);
     padding: 15px;
     margin-bottom: 12px;
-    border-radius: 4px;
+    border-radius: 0px;
     font-family: inherit;
     box-sizing: border-box;
     resize: vertical;
@@ -359,13 +377,13 @@ nav a {
 .submit-btn {
     width: 100%;
     background: var(--accent);
-    /* Premium Navy Button */
     color: var(--text-inv);
     border: none;
     padding: 20px;
-    border-radius: 4px;
+    border-radius: 2px;
     font-size: 1.1rem;
     font-weight: 800;
+    font-family: inter;
     cursor: pointer;
     text-transform: uppercase;
 }
@@ -391,7 +409,7 @@ nav a {
     background: var(--bg-2);
     object-fit: cover;
     border: 1px solid var(--border);
-    border-radius: 4px;
+    border-radius: 0px;
 }
 
 .item-name {
@@ -424,30 +442,16 @@ nav a {
     font-weight: 800;
 }
 
-.qty-controls {
-    display: flex;
-    align-items: stretch;
-    /* Forces both children to be the same height */
-    gap: 10px;
-    height: 35px;
-    /* Define a set height for the row */
-    border-radius: 4px;
-}
-
 .qty-dropdown {
-    background: var(--bg);
-    border: 1px solid var(--border);
-    color: var(--text);
+    background: #ffffff;
     padding: 0 10px;
-    /* Remove vertical padding, use height instead */
-    border-radius: 0px;
     font-size: 0.9rem;
     cursor: pointer;
     height: 100%;
-    /* Fill the 35px container */
     box-sizing: border-box;
-    width: 60px;
-    border-radius: 4px;
+    width: 50px;
+    outline: none;
+    border: 0 !important;
 }
 
 .cart-qty-btn {
@@ -456,16 +460,15 @@ nav a {
     justify-content: center;
     width: 35px;
     height: 35px;
-    background: var(--bg);
+    background: none;
     color: var(--text);
-    border: 1px solid var(--border);
     cursor: pointer;
     font-size: 1.1rem;
     font-weight: bold;
-    border-radius: 4px;
+    border-radius: 0px;
     transition: all 0.2s;
     box-sizing: border-box;
-
+    border: none; 
 }
 
 .cart-qty-btn:hover {
@@ -473,12 +476,10 @@ nav a {
     color: var(--accent2);
 }
 
-/* Ensure the whole row stays aligned */
 .qty-controls {
     display: flex;
     align-items: center;
     gap: 5px;
-    /* Tighter gap for the buttons */
     height: 35px;
 }
 
@@ -492,7 +493,7 @@ nav a {
     /* Match the dropdown height */
     background: var(--bg-2);
     color: var(--text-dim);
-    border: 1px solid var(--border);
+    border: 0px solid var(--border);
     cursor: pointer;
     font-size: 1.2rem;
     line-height: 1;
@@ -500,7 +501,7 @@ nav a {
     transition: all 0.2s ease;
     box-sizing: border-box;
     /* Ensures border is included in the height */
-    border-radius: 4px;
+    border-radius: 0px;
 }
 
 .remove-x:hover {
@@ -611,7 +612,7 @@ nav a {
 
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
 
-    border-radius: 5px;
+    border-radius: 0px;
 
 }
 
@@ -683,7 +684,7 @@ nav a {
 
     border: 1px solid var(--border);
 
-    border-radius: 8px;
+    border-radius: 0px;
 
     box-sizing: border-box;
 
@@ -729,7 +730,7 @@ nav a {
     /* flex-shrink prevents the browser from squishing the thumbs into ovals */
     flex-shrink: 0; 
     object-fit: cover;
-    border-radius: 4px;
+    border-radius: 0px;
     border: 1px solid var(--border);
     cursor: pointer;
 }
@@ -877,7 +878,7 @@ nav a {
         border: 1px solid var(--border);
         cursor: pointer;
         transition: opacity 0.2s;
-        border-radius: 4px;
+        border-radius: 0px;
         transition: all .3s ease;
     }
 
@@ -894,11 +895,11 @@ nav a {
     right: 20px;
     width: 300px;
     background: white;
-    border: 1px solid #ddd;
-    border-radius: 12px;
+    border: 1px solid #eee;
+    border-radius: 0px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     z-index: 1000;
-    transition: transform 0.3s ease, opacity 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.3s ease, width 0.3s ease, height 0.3s ease; /* Added smooth sizing transitions */
     padding: 15px;
 }
 
@@ -911,6 +912,7 @@ nav a {
 .mini-cart-header {
     display: flex;
     justify-content: space-between;
+    align-items: center; /* Ensures header contents align nicely when open */
     font-weight: bold;
     margin-bottom: 10px;
     border-bottom: 1px solid #eee;
@@ -919,7 +921,7 @@ nav a {
 
 .mini-cart.force-hide {
     opacity: 0;
-    pointer-events: none; /* Prevents clicking it when it's invisible */
+    pointer-events: none; 
     transform: translateY(20px);
 }
 
@@ -939,7 +941,7 @@ nav a {
 .mini-thumb {
     width: 40px;
     height: 40px;
-    border-radius: 4px;
+    border-radius: 0px;
     object-fit: cover;
 }
 
@@ -955,20 +957,13 @@ nav a {
     color: #fff;
     border: none;
     padding: 8px;
-    border-radius: 6px;
+    border-radius: 0px;
     cursor: pointer;
     margin-top: 5px;
 }
 
-.mini-cart.force-hide {
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(20px);
-}
-
 .mini-cart-footer button:hover {
     background: #333;
-    /* Dark gray */
     transform: translateY(-1px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -977,39 +972,57 @@ nav a {
 #minimize-cart {
     background: none;
     border: none;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     cursor: pointer;
-    line-height: 1;
+    padding: 0;
+    margin: 0;
+
+    /* Flawless structural centering */
+    display: flex;
+    align-items: center;      
+    justify-content: center;   
+    line-height: 1;            
+    height: 100%;
+    width: 100%;
+
+    /* Physically nudge the font down to counteract inherent baseline high shifts */
+    transform: translateY(1px); 
 }
 
 /* Minimized State */
 .mini-cart.minimized {
-    width: 60px;
-    /* Becomes a circle/square bubble */
-    height: 60px;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 30px;
-    /* Round bubble */
+    width: 40px;                 /* Shifted from 30px to 40px to give the plus sign breathing room */
+    height: 40px;                
+    padding: 0 !important;       /* CRITICAL: Nukes the 15px inner layout padding */
+    display: flex !important;    /* Overrides everything into a flexbox center grid */
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 0px;
     overflow: hidden;
 }
 
-/* Hide everything except the header span (or a cart icon) when minimized */
+/* Strip layout properties from header elements while minimized */
+.mini-cart.minimized .mini-cart-header {
+    width: 100%;
+    height: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* Hide everything except the button when minimized */
 .mini-cart.minimized #mini-cart-content,
 .mini-cart.minimized .mini-cart-header span {
-    display: none;
+    display: none !important;
 }
 
-/* Show a simple number or icon instead */
+/* Removed old pseudo-element rules that broke spacing */
 .mini-cart.minimized::before {
-    content: "🛒";
-    /* Or your item count via JS */
-    font-size: 1.5rem;
+    display: none !important;
 }
-
-/* --- Global Modal Fix (Prevents 'Off-Screen' issues on all sizes) --- */
 
 @media (max-width: 768px) {
 
@@ -1108,7 +1121,7 @@ nav a {
 
         /* Make it more compact */
         padding: 12px;
-        border-radius: 10px;
+        border-radius: 0px;
     }
 
     #mini-cart-items {
@@ -1194,7 +1207,7 @@ nav a {
 .success-content {
     background: white;
     padding: 40px;
-    border-radius: 12px;
+    border-radius: 0px;
     text-align: center;
     box-shadow: 0 20px 40px rgba(0,0,0,0.1);
     max-width: 400px;
@@ -1228,7 +1241,7 @@ nav a {
     color: white;
     border: none;
     padding: 12px 30px;
-    border-radius: 6px;
+    border-radius: 0px;
     cursor: pointer;
     font-weight: bold;
     transition: transform 0.2s;
@@ -1274,7 +1287,7 @@ nav a {
 .faq-section {
     max-width: 800px;
     margin: 50px auto;
-    padding: 0 20px;
+    padding: 40px;
 }
 
 .faq-container {
@@ -1325,4 +1338,51 @@ nav a {
 
 .faq-item.active .icon {
     transform: rotate(45deg); /* Optional: turns + into an x */
+}
+
+
+/**ABOUT SECTION**/
+.about-designer {
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 40px;
+    text-align: center;
+}
+
+.about-designer h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.about-designer p {
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.bio-box {
+    margin-top: 25px;
+    padding-top: 25px;
+    border-top: 1px solid #ddd;
+}
+
+.portfolio-link {
+    color: var(--text-dim);
+    text-decoration: none;
+    font-weight: 600;
+    transition: opacity 0.2s;
+}
+
+.portfolio-link:hover {
+    text-decoration: underline;
+    opacity: 0.8;
+}
+
+/* Responsive adjustment */
+@media (max-width: 600px) {
+    .about-designer {
+        margin: 30px 20px;
+        padding: 25px;
+    }
 }
