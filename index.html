@@ -15,14 +15,14 @@
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script type="text/javascript">
-    (function(){
-        emailjs.init("D60UAyVYRs45EsLpZ"); //public key here
-    })();
+        (function () {
+            emailjs.init("D60UAyVYRs45EsLpZ"); //public key here
+        })();
     </script>
 </head>
 
 <body>
-<!--
+    <!--
 
     <div style="background: #ff4d4d; color: white; text-align: center; padding: 10px; font-weight: bold;">
         ⚠️ Currently catching up on orders! New orders will be processed starting next week.
@@ -54,17 +54,52 @@
 
         <div class="product-grid">
 
+            <!--ricepaper holder-->
+            <div class="product-card">
+                <div class="product-image"
+                    onclick="openModal('Rice Paper Holder', 90, 
+                    [
+                    'bilder/Rispapper hallare/rispapper.webp',
+                    'bilder/Rispapper hallare/rispapperprodukt.webp',
+                    'bilder/Rispapper hallare/rispapperzoomin.webp',
+                 ],
+                     'Tired of rice paper manspreading across the table when you just want to enjoy your bánh xèo or gỏi cuốn? Get this sleek rice paper holder!')">
+                    <img src="bilder/Rispapper hallare/rispapper.webp">
+                </div>
+                <div class="product-info">
+                    <h3>Rice Paper Holder</h3>
+                    <div class="card-footer">
+                        <div class="options">
+                            <select class="color-picker">
+                                <option>Black</option>
+                            </select>
+                        </div>
+
+                        <div class="footer-right">
+                            <span class="price">90 SEK</span>
+                            <button class="add-btn" data-name="Test Product" data-price="90" data-images='{
+                                "Black":"bilder/krukstabil/_DYR6977.JPG"
+                                
+                            }'>
+                                Add
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!--Stabiliser Stand-->
             <div class="product-card">
                 <div class="product-image"
                     onclick="openModal('Stabilizer Stand', 90, 
                     [
-                    'bilder/krukstabil/_DYR6973.JPG',
-                    'bilder/krukstabil/_DYR6982.JPG',
-                    'bilder/krukstabil/_DYR69772.JPG'
+                    'bilder/krukstabil/krukstabilstanding.webp',
+                    'bilder/krukstabil/krukstabilvaxt.webp',
+                    'bilder/krukstabil/krukstabbaksida.webp'
                  ],
                      'Compatible with Clas Ohlson pedestal. Fits snuggly on top, makes the pedestal much more rigid.')">
-                    <img src="bilder/krukstabil/_DYR6974.JPG">
+                    <img src="bilder/krukstabil/krukstabilmain.webp">
                 </div>
                 <div class="product-info">
                     <h3>Stabilizer</h3>
@@ -193,43 +228,53 @@
         </div>
     </section>
 
-        <section class="about-designer">
-            <div class="about-content">
-                <h2>Hi!</h2>
-                <p>All products featured here are my original designs. If you have an idea, a problem to solve, or a concept you need developed and 3D printed, feel free to reach out. Let's collaborate and bring your project to life.</p>
-                
-                <div class="bio-box">
-                    <p>
-                        <strong>Who am I?</strong> I'm a recent graduate in Industrial Design Engineering with a passion for creating. I turn ideas into products and solutions. If you'd like to know more about me, check out my portfolio at 
-                        <a href="https://yuhanhua.com/" target="_blank" class="portfolio-link">yuhanhua.com</a>.
-                    </p>
-                </div>
+    <section class="about-designer">
+        <div class="about-content">
+            <h2>Hi!</h2>
+            <p>All products featured here are my original designs. If you have an idea, a problem to solve, or a concept
+                you need developed and 3D printed, feel free to reach out. Let's collaborate and bring your project to
+                life.</p>
+
+            <div class="bio-box">
+                <p>
+                    <strong>Who am I?</strong> I'm a recent graduate in Industrial Design Engineering with a passion for
+                    creating. I turn ideas into products and solutions. If you'd like to know more about me, check out
+                    my portfolio at
+                    <a href="https://yuhanhua.com/" target="_blank" class="portfolio-link">yuhanhua.com</a>.
+                </p>
             </div>
-        </section>
+        </div>
+    </section>
 
     <section id="faq" class="faq-section">
         <h2 class="section-title">Frequently Asked Questions</h2>
 
-                    <!-- FAQ Item 4 -->
-<!-- FAQ Item: Is it real? -->
-            <div class="faq-item">
-                <button class="faq-question">This does not feel like a normal webshop... <span class="icon">+</span></button>
-                <div class="faq-answer">
-                    <p>
-                      This website is a fun personal project I’ve been building to explore creative ways to run a shop without the complexity of heavy server programming, massive databases, or expensive monthly subscriptions. 
-                    </p>
-                    <p>
-                        This is a more scaled-down, simplified version of a traditional webshop, which hopefully explains why it feels a bit different.
-                    </p>
-                </div>
+        <!-- FAQ Item 4 -->
+        <!-- FAQ Item: Is it real? -->
+        <div class="faq-item">
+            <button class="faq-question">This does not feel like a normal webshop... <span
+                    class="icon">+</span></button>
+            <div class="faq-answer">
+                <p>
+                    This website is a fun personal project I’ve been building to explore creative ways to run a shop
+                    without the complexity of heavy server programming, massive databases, or expensive monthly
+                    subscriptions.
+                </p>
+                <p>
+                    This is a more scaled-down, simplified version of a traditional webshop, which hopefully explains
+                    why it feels a bit different.
+                </p>
             </div>
-        
+        </div>
+
         <div class="faq-container">
             <!-- FAQ Item 1 -->
             <div class="faq-item">
                 <button class="faq-question">How does the purchase process work? <span class="icon">+</span></button>
                 <div class="faq-answer">
-                    <p>After you submit your order, you'll receive an email confirmation. Payment is made via Swish. Once the payment is confirmed, I start preparing your items and will notify you when they are ready for shipping or pickup.</p>
+                    <p>After you submit your order, you'll receive an email confirmation. Payment is made via Swish.
+                        Once the payment is confirmed, I start preparing your items and will notify you when they are
+                        ready for shipping or pickup.</p>
                 </div>
             </div>
 
@@ -237,7 +282,9 @@
             <div class="faq-item">
                 <button class="faq-question">How long does shipping take? <span class="icon">+</span></button>
                 <div class="faq-answer">
-                    <p>As this is a <strong>one-man operation</strong>, processing times can vary depending on the size and complexity of your order. Generally, I aim to ship within a few days, and standard shipping within Sweden usually takes 2-4 business days via PostNord once dispatched.</p>
+                    <p>As this is a <strong>one-man operation</strong>, processing times can vary depending on the size
+                        and complexity of your order. Generally, I aim to ship within a few days, and standard shipping
+                        within Sweden usually takes 2-4 business days via PostNord once dispatched.</p>
                 </div>
             </div>
         </div>
@@ -307,8 +354,9 @@
                 <button id="minimize-cart" onclick="toggleMiniCart()">−</button>
             </div>
         </div>
-        
-        <div id="mini-cart-content"> <div id="mini-cart-items"></div>
+
+        <div id="mini-cart-content">
+            <div id="mini-cart-items"></div>
             <div class="mini-cart-footer">
                 <div class="mini-total">Total: <span id="mini-cart-total">0</span> SEK</div>
                 <button onclick="document.getElementById('order').scrollIntoView({behavior: 'smooth'})">
@@ -319,42 +367,55 @@
     </div>
 
     <div id="empty-cart-overlay" class="success-overlay hidden">
-    <div class="success-content">
-        <div class="success-icon" style="background: #cfd8dc;">!</div> <h2>Your Cart is Empty</h2>
-        
-        <p class="order-disclaimer" style="border-left-color: #cfd8dc; text-align: center;">
-            It looks like you haven't added any products yet. 
-            Browse the shop to find something you like!
-        </p>
-
-        <button onclick="closeEmptyOverlay()" class="success-close-btn">Browse Shop</button>
-    </div>
-</div>
-
-    <div id="success-overlay" class="success-overlay hidden">
         <div class="success-content">
-            <div class="success-icon">✓</div>
-            <h2>Order Request Sent!</h2>
-            
-            <p class="order-disclaimer">
-                <strong>Note:</strong> All products are 3D-printed individually. 
-                                       Please note that production might take a few days before your order is shipped.
+            <div class="success-icon" style="background: #cfd8dc;">!</div>
+            <h2>Your Cart is Empty</h2>
+
+            <p class="order-disclaimer" style="border-left-color: #cfd8dc; text-align: center;">
+                It looks like you haven't added any products yet.
+                Browse the shop to find something you like!
             </p>
 
-                <div id="swish-section">
-                    <p>Scan or click to pay with <strong>Swish</strong>:</p>
-                    <a id="swish-link" href="#">
-                        <img id="swish-qr" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Swish QR Code" style="width: 200px; display: block; margin: 10px auto;">
-                    </a>
-                    <p class="swish-total"><span id="display-grand-total">0</span> SEK</p>
-                </div>
-
-            <button onclick="closeSuccessOverlay()" class="success-close-btn">Return to Shop</button>
+            <button onclick="closeEmptyOverlay()" class="success-close-btn">Browse Shop</button>
         </div>
     </div>
 
+<div id="success-overlay" class="success-overlay hidden">
+    <div class="success-content">
+        <div class="success-icon">✓</div>
+        <h2>Order Request Sent!</h2>
+
+        <p class="order-disclaimer">
+            <strong>Note:</strong> All products are 3D-printed individually.
+            Please note that production might take a few days before your order is shipped.
+        </p>
+
+        <div id="swish-section">
+            <p class="desktop-text-only">Scan or click to pay with <strong>Swish</strong>:</p>
+            
+            <a id="swish-link" href="#">
+                <img id="swish-qr"
+                    src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                    alt="Swish QR Code" style="width: 200px; display: block; margin: 10px auto;">
+            </a>
+            
+            <p class="swish-total"><span id="display-grand-total">0</span> SEK</p>
+
+            <div class="mobile-swish-info">
+                <p class="mobile-number-label">Swish Number: <strong>0737764660</strong></p>
+                <div class="mobile-swish-actions">
+                    <a href="swish://payment" class="swish-app-btn">Open Swish App</a>
+                    <button type="button" id="copy-swish-btn" class="copy-number-btn">Copy Number</button>
+                </div>
+            </div>
+        </div>
+
+        <button onclick="closeSuccessOverlay()" class="success-close-btn">Return to Shop</button>
+    </div>
+</div>
+
     <script src="script/script.js"></script>
-    
+
 </body>
 
 </html>

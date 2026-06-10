@@ -1251,6 +1251,8 @@ nav a {
     transform: scale(1.05);
 }
 
+
+
 /**swish disclaimer etc**/
 
 .order-disclaimer {
@@ -1280,6 +1282,70 @@ nav a {
 
 #swish-qr:hover {
     transform: scale(1.02);
+}
+
+/* --- New Mobile Swish Styling (Appends safely to your original styles) --- */
+.mobile-number-label {
+    margin: 15px 0 5px 0 !important;
+    font-size: 1rem;
+    color: var(--text-dim);
+}
+
+.mobile-swish-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 260px;
+    margin: 10px auto 0 auto;
+}
+
+.swish-app-btn {
+    display: inline-block;
+    background-color: #333; /* Swish Brand Orange */
+    color: white;
+    padding: 12px 20px;
+    border-radius: 0px; /* Kept sharp to match your success-close-btn layout */
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.2s;
+}
+
+.swish-app-btn:hover {
+    transform: scale(1.03);
+}
+
+.copy-number-btn {
+    background-color: #f4f4f4;
+    color: #333;
+    border: 1px solid #ddd;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    border-radius: 0px; /* Kept sharp to match your aesthetic */
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.copy-number-btn:hover {
+    background-color: #eaeaea;
+}
+
+/* --- RESPONSIVE TOGGLES --- */
+/* Desktop: Hide phone UI elements completely */
+@media (min-width: 769px) {
+    .mobile-swish-info {
+        display: none !important;
+    }
+}
+
+/* Mobile: Hide desktop-only text and QR link, show app features */
+@media (max-width: 768px) {
+    .desktop-text-only, #swish-link {
+        display: none !important;
+    }
+    .success-content p {
+        margin-bottom: 15px; /* Adjusting spacing slightly for small screens */
+    }
 }
 
 /**FAQ**/

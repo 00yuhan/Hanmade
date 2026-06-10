@@ -331,3 +331,24 @@ document.querySelectorAll('.faq-question').forEach(button => {
         faqItem.classList.toggle('active');
     });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const copyBtn = document.getElementById('copy-swish-btn');
+    if (copyBtn) {
+        copyBtn.addEventListener('click', function() {
+            const realSwishNumber = "07XXXXXXXX"; // Your actual unspaced number
+            
+            navigator.clipboard.writeText(realSwishNumber).then(() => {
+                copyBtn.innerText = "Number Copied! ✓";
+                copyBtn.style.backgroundColor = "#e8f5e9"; 
+                
+                setTimeout(() => {
+                    copyBtn.innerText = "Copy Number";
+                    copyBtn.style.backgroundColor = "#f4f4f4";
+                }, 2500);
+            }).catch(err => {
+                console.error('Failed to copy text: ', err);
+            });
+        });
+    }
+});
