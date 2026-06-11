@@ -1381,7 +1381,7 @@ nav a {
 }
 
 .faq-question:hover {
-    color: var(--accent2);
+    color: var(--accent);
 }
 
 .faq-answer {
