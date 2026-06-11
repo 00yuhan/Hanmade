@@ -303,10 +303,13 @@ window.addEventListener('load', () => {
     if (miniCartElem && targetSection) {
         const cartObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                // If the top of the order section is within 450px of the top of the screen
-                if (entry.isIntersecting && entry.boundingClientRect.top < 450) {
+                const rect = entry.boundingClientRect;
+                
+                // 1. If we are currently looking at the order section OR have scrolled past it downwards
+                if ((entry.isIntersecting && rect.top < 450) || rect.bottom < 450) {
                     miniCartElem.classList.add('force-hide');
                 } else {
+                    // 2. We are above the order section (viewing products), show the mini cart if it has items
                     if (cart.length > 0) {
                         miniCartElem.classList.remove('force-hide');
                     }
@@ -336,7 +339,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const copyBtn = document.getElementById('copy-swish-btn');
     if (copyBtn) {
         copyBtn.addEventListener('click', function() {
-            const realSwishNumber = "07XXXXXXXX"; // Your actual unspaced number
+            const realSwishNumber = "0737764660";
             
             navigator.clipboard.writeText(realSwishNumber).then(() => {
                 copyBtn.innerText = "Number Copied! ✓";
